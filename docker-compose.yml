@@ -6,6 +6,14 @@ services:
       - ./workspace:/workspace/
     ports:
       - "3010:80"
+  php:
+    build: ./php
+    ports:
+      - "3110:80"
+    volumes:
+      - ./workspace/www:/var/www/html
+    depends_on:
+      - db
   db:
     image: mariadb
     environment:
@@ -14,13 +22,5 @@ services:
     volumes:
       - ./database:/var/lib/mysql
     ports:
-      - "3110:3306"
-  php:
-    build: ./php
-    ports:
-      - "3210:80"
-    volumes:
-      - ./workspace/www:/var/www/html
-    depends_on:
-      - db
+      - "3210:3306"
  
