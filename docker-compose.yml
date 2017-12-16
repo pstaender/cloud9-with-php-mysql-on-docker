@@ -10,7 +10,7 @@ services:
     image: mariadb
     environment:
       - MYSQL_ROOT_PASSWORD=supersecret
-      - MYSQL_DATABASE=SS_project
+      - MYSQL_DATABASE=my_database
     volumes:
       - ./database:/var/lib/mysql
     ports:
